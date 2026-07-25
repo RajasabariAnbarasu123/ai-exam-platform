@@ -1,0 +1,16 @@
+# Backend specific gitignore
+.env
+.env.*
+!.env.example
+target/
+*.class
+*.jar
+*.war
+logs/
+*.log
+.mvn/
+mvnw
+mvnw.cmd
+.idea/
+.vscode/
+*.iml

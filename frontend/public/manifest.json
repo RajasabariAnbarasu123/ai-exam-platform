@@ -1,0 +1,22 @@
+{
+    "name": "AI Exam Platform",
+    "short_name": "AI Exam",
+    "description": "AI-Powered Smart Exam Platform",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#4F46E5",
+    "background_color": "#ffffff",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["education", "productivity", "utilities"],
+    "lang": "en",
+    "dir": "ltr",
+    "prefer_related_applications": false
+}
