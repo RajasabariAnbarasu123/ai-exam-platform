@@ -1,5 +1,5 @@
 # ---- Stage 1: Build the jar with Maven ----
-FROM maven:3.9-eclipse-temurin-17 AS build
+FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Copy pom.xml first so dependencies are cached unless pom.xml changes
@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # ---- Stage 2: Run the jar with a lightweight JRE ----
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 # Copy only the built jar from the build stage
