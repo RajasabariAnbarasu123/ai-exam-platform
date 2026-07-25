@@ -1,63 +1,23 @@
-# ============================================
-# BUILD STAGE
-# ============================================
-FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
-
-# Set working directory
+# ---- Stage 1: Build the jar with Maven ----
+FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copy pom.xml and download dependencies
+# Copy pom.xml first so dependencies are cached unless pom.xml changes
 COPY pom.xml .
-RUN mvn dependency:go-offline
+RUN mvn dependency:go-offline -B
 
-# Copy source code and build
+# Copy the rest of the source and build
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# ============================================
-# PRODUCTION STAGE
-# ============================================
-FROM eclipse-temurin:21-jre-alpine
-
-# Set working directory
+# ---- Stage 2: Run the jar with a lightweight JRE ----
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
-# Install required packages
-RUN apk add --no-cache tzdata curl
+# Copy only the built jar from the build stage
+COPY --from=build /app/target/*.jar app.jar
 
-# Set timezone
-ENV TZ=UTC
-
-# Copy jar file from build stage
-COPY --from=build /app/target/ai-exam-platform.jar app.jar
-
-# Create logs directory
-RUN mkdir -p /var/log/aiexam && \
-    chown -R 1000:1000 /var/log/aiexam
-
-# Create user for running the application
-RUN addgroup -S appgroup && \
-    adduser -S appuser -G appgroup && \
-    chown -R appuser:appgroup /app
-
-# Switch to app user
-USER appuser
-
-# Expose port
+# Render sets PORT dynamically; Spring Boot reads it via server.port=${PORT:8080}
 EXPOSE 8080
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8080/api/actuator/health || exit 1
-
-# Environment variables
-ENV JAVA_OPTS="\
-    -Xmx512m \
-    -Xms256m \
-    -XX:+UseG1GC \
-    -XX:+UseContainerSupport \
-    -Djava.security.egd=file:/dev/./urandom \
-    -Duser.timezone=UTC"
-
-# Run the application
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
