@@ -2,13 +2,14 @@
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copy pom.xml first so dependencies are cached unless pom.xml changes
+# Copy pom.xml first so dependency downloads are cached in a separate
+# layer unless pom.xml changes (skips go-offline, which has a known bug
+# of ignoring <exclusions> and trying to resolve excluded artifacts anyway)
 COPY pom.xml .
-RUN mvn dependency:go-offline -B
 
-# Copy the rest of the source and build
+# Copy the rest of the source and build in one step
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -B
 
 # ---- Stage 2: Run the jar with a lightweight JRE ----
 FROM eclipse-temurin:21-jre-alpine
