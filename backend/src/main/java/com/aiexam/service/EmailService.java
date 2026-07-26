@@ -34,7 +34,7 @@ public class EmailService {
     @Value("${brevo.sender.name:AI Exam Platform}")
     private String fromName;
 
-    @Value("${app.url:http://localhost:3000}")
+    @Value("${app.url:https://ai-exam-platform-gl4d.onrender.com}")
     private String appUrl;
 
     public EmailService(TemplateEngine templateEngine, SystemSettingService systemSettingService) {
