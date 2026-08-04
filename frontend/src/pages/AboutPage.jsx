@@ -72,28 +72,6 @@ const AboutPage = () => {
                 })}
             </div>
 
-            {/* Stats */}
-            <div className="glass-card p-8 mb-16">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div className="text-center">
-                        <p className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">10K+</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Questions Generated</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">5K+</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Active Users</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">15K+</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Exams Completed</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">95%</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Satisfaction Rate</p>
-                    </div>
-                </div>
-            </div>
-
             {/* Team */}
             <div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
