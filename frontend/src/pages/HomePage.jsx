@@ -57,10 +57,10 @@ const HomePage = () => {
     ];
 
     const stats = [
-        { label: 'Questions Generated', value: '10K+', icon: Sparkles, color: '#7C3AED' },
-        { label: 'Active Users', value: '5K+', icon: Users, color: '#4F46E5' },
-        { label: 'Exams Taken', value: '15K+', icon: BarChart3, color: '#06B6D4' },
-        { label: 'Success Rate', value: '95%', icon: CheckCircle, color: '#10B981' },
+        { label: 'Questions Generated', value: '1000+', icon: Sparkles, color: '#7C3AED' },
+        { label: 'Active Users', value: '10+', icon: Users, color: '#4F46E5' },
+        { label: 'Exams Taken', value: '100+', icon: BarChart3, color: '#06B6D4' },
+        { label: 'Success Rate', value: '90%', icon: CheckCircle, color: '#10B981' },
     ];
 
     const testimonialHighlights = [
@@ -120,9 +120,6 @@ const HomePage = () => {
                             <span className="text-sm font-semibold" style={{ color: '#4F46E5' }}>
                                 AI-Powered Exam Platform
                             </span>
-                            <span className="flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full" style={{ background: '#4F46E5', color: 'white' }}>
-                                NEW
-                            </span>
                         </div>
 
                         {/* Headline */}
@@ -139,34 +136,6 @@ const HomePage = () => {
                         >
                             Generate dynamic exams with AI, get instant results, and track your performance with detailed analytics. The future of online assessment is here.
                         </p>
-
-                        {/* Testimonial hints */}
-                        <div className="flex items-center justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: '0.25s' }}>
-                            <div className="flex -space-x-2">
-                                {['P', 'A', 'S', 'R'].map((initial, i) => (
-                                    <div
-                                        key={i}
-                                        className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold text-white"
-                                        style={{
-                                            background: `hsl(${230 + i * 20}, 70%, 55%)`,
-                                            borderColor: 'var(--bg-primary)',
-                                        }}
-                                    >
-                                        {initial}
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <div className="flex">
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: '#FBBF24' }} />
-                                    ))}
-                                </div>
-                                <span className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
-                                    Loved by 5,000+ students
-                                </span>
-                            </div>
-                        </div>
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
