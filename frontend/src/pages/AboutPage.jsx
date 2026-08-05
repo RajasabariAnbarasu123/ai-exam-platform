@@ -88,9 +88,6 @@ const AboutPage = () => {
                             <h4 className="font-semibold text-gray-900 dark:text-white">
                                 {member.name}
                             </h4>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
-                                {member.role}
-                            </p>
                         </div>
                     ))}
                 </div>
