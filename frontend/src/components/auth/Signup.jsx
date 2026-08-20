@@ -355,9 +355,9 @@ const Signup = () => {
                 {/* Legal note */}
                 <p className="text-center text-xs mt-5" style={{ color: 'var(--text-tertiary)' }}>
                     By creating an account, you agree to our{' '}
-                    <a href="#" className="underline hover:text-indigo-500 transition-colors">Terms of Service</a>
+                    <Link to="/terms-of-service" className="underline hover:text-indigo-500 transition-colors">Terms of Service</Link>
                     {' '}and{' '}
-                    <a href="#" className="underline hover:text-indigo-500 transition-colors">Privacy Policy</a>
+                    <Link to="/privacy-policy" className="underline hover:text-indigo-500 transition-colors">Privacy Policy</Link>
                 </p>
             </div>
         </div>

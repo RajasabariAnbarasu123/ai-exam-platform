@@ -8,6 +8,8 @@ export const ROUTES = {
     FORGOT_PASSWORD: '/forgot-password',
     RESET_PASSWORD: '/reset-password',
     VERIFY_EMAIL: '/verify-email',
+    PRIVACY_POLICY: '/privacy-policy',
+    TERMS_OF_SERVICE: '/terms-of-service',
     
     // Protected Routes
     DASHBOARD: '/dashboard',
@@ -84,6 +86,8 @@ export const PUBLIC_ROUTES = [
     ROUTES.FORGOT_PASSWORD,
     ROUTES.RESET_PASSWORD,
     ROUTES.VERIFY_EMAIL,
+    ROUTES.PRIVACY_POLICY,
+    ROUTES.TERMS_OF_SERVICE,
 ];
 
 // Auth routes (redirect to dashboard if authenticated)

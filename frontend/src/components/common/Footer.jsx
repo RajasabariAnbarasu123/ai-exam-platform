@@ -17,9 +17,9 @@ const Footer = () => {
             { label: 'Contact', path: '/contact' },
         ],
         legal: [
-            { label: 'Privacy Policy', path: '#' },
-            { label: 'Terms of Service', path: '#' },
-            { label: 'Cookie Policy', path: '#' },
+            { label: 'Privacy Policy', path: '/privacy-policy' },
+            { label: 'Terms of Service', path: '/terms-of-service' },
+            { label: 'Cookie Policy', path: '/privacy-policy' },
         ],
     };
 
@@ -125,15 +125,15 @@ const Footer = () => {
                             <ul className="space-y-2.5">
                                 {footerLinks.legal.map(link => (
                                     <li key={link.label}>
-                                        <a
-                                            href={link.path}
+                                        <Link
+                                            to={link.path}
                                             className="text-sm transition-all duration-200 hover:translate-x-1 inline-block"
                                             style={{ color: 'var(--text-secondary)' }}
                                             onMouseEnter={e => e.currentTarget.style.color = '#4F46E5'}
                                             onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
                                         >
                                             {link.label}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

@@ -15,6 +15,8 @@ import AdminRoute from './components/common/AdminRoute';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const Login = lazy(() => import('./components/auth/Login'));
@@ -136,6 +138,8 @@ function App() {
                                 <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPassword />} />
                                 <Route path={ROUTES.RESET_PASSWORD} element={<ResetPassword />} />
                                 <Route path={ROUTES.VERIFY_EMAIL} element={<VerifyEmail />} />
+                                <Route path={ROUTES.PRIVACY_POLICY} element={<PrivacyPolicyPage />} />
+                                <Route path={ROUTES.TERMS_OF_SERVICE} element={<TermsOfServicePage />} />
 
                                 {/* Protected Routes */}
                                 <Route element={<PrivateRoute />}>
